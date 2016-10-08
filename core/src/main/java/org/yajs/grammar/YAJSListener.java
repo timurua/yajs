@@ -58,6 +58,16 @@ public interface YAJSListener extends ParseTreeListener {
 	 */
 	void exitType(YAJSParser.TypeContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link YAJSParser#typeName}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeName(YAJSParser.TypeNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link YAJSParser#typeName}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeName(YAJSParser.TypeNameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link YAJSParser#object}.
 	 * @param ctx the parse tree
 	 */
@@ -87,4 +97,14 @@ public interface YAJSListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArray(YAJSParser.ArrayContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link YAJSParser#string}.
+	 * @param ctx the parse tree
+	 */
+	void enterString(YAJSParser.StringContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link YAJSParser#string}.
+	 * @param ctx the parse tree
+	 */
+	void exitString(YAJSParser.StringContext ctx);
 }

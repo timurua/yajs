@@ -20,7 +20,7 @@ type User {
     firstName: string,
     lastName: string,
     sex: boolean
-}
+};
 '''
         YAJSLexer lexer = new YAJSLexer(new ANTLRInputStream(schema));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -79,6 +79,16 @@ type User {
             }
 
             @Override
+            void enterTypeName(YAJSParser.TypeNameContext ctx) {
+
+            }
+
+            @Override
+            void exitTypeName(YAJSParser.TypeNameContext ctx) {
+
+            }
+
+            @Override
             void enterObject(YAJSParser.ObjectContext ctx) {
 
             }
@@ -105,6 +115,16 @@ type User {
 
             @Override
             void exitArray(YAJSParser.ArrayContext ctx) {
+
+            }
+
+            @Override
+            void enterString(YAJSParser.StringContext ctx) {
+
+            }
+
+            @Override
+            void exitString(YAJSParser.StringContext ctx) {
 
             }
 
