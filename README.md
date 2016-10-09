@@ -1,29 +1,39 @@
-# YaJS
-This project is Yet Another Json Schema
-
-The aim of the project is to implement json validator which works off the text based schema definition language which is very consise.
+# YAJS - Yet Another Json Schema
+This project is an attempt to implement JSON schema in a consice form.
 
 E.g.
 ```text
-import ../Address.jschema
+import ./Address.jschema
 
 type Age integer;
 
-type DateOfBirth {
+type Date {
 	year!: integer,
 	month!: integer(min:1, max:12),
-	date!: integer(min:1, max:30)
+	day!: integer(min:1, max:31)
 }
 
-type Person {
+type User {
 	firstName!: string,
 	lastName!: string,
-	age?: Age,
+	age: Age,
 	address!: Address,
-	dateOfBirth! : DateOfBirth,
-	transactions!: [{
+	dateOfBirth! : Date,
+	creditCardTransactions!: [{
+		ammount: float,
 		creditCard: string(minLength: 12, maxLength:16)
-		company: string
-	}]
+		description: string
+	}],
+	deprecated(2016-10-09) checkTransactions: {
+		ammount: float,
+		routingNumber: string(length: 12),
+		account: string(minLength: 12, maxLength:16)
+		description: string
+	},
+	experimental paypalTransactions:{
+		ammount: float,
+		email: string(length: 12),
+		description: string
+	}
 }
 ```
