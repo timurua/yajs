@@ -47,8 +47,8 @@ person {
     lastName!: string,
     deprecated sex: "M" | "F"
     experimental transactions: [{
-    	creditCard!: string,
-	ammount!: number
+        creditCard!: string,
+        ammount!: number
     }]
 }
 ```
