@@ -1,29 +1,67 @@
-# YaJS
-This project is Yet Another Json Schema
+# YAJS - Yet Another Json Schema
+This project is an attempt to implement JSON schema in a consice form.
 
-The aim of the project is to implement json validator which works off the text based schema definition language which is very consise.
-
-E.g.
+Here is the simple self-speaking schema:
 ```text
-import ../Address.jschema
-
-type Age integer;
-
-type DateOfBirth {
-	year!: integer,
-	month!: integer(min:1, max:12),
-	date!: integer(min:1, max:30)
-}
-
-type Person {
-	firstName!: string,
-	lastName!: string,
-	age?: Age,
-	address!: Address,
-	dateOfBirth! : DateOfBirth,
-	transactions!: [{
-		creditCard: string(minLength: 12, maxLength:16)
-		company: string
-	}]
+person {
+    firstName: string,
+    lastName: string
 }
 ```
+The example declares person type and 2 optional fields firstName and lastName of type string.
+If the fields are required then the schema will evolve as following:
+```text
+person {
+    firstName!: string,
+    lastName!: string
+}
+```
+
+The enumeration could be added as simple as
+```text
+person {
+    firstName!: string,
+    lastName!: string,
+    sex: "M" | "F"
+}
+```
+
+The additional array of embedded objects could be added to the schema by simply embeddeding the structure like:
+```text
+person {
+    firstName!: string,
+    lastName!: string,
+    sex: "M" | "F"
+    transactions: [{
+        creditCard!: string,
+        ammount!: number
+    }]
+}
+```
+
+The field lifecycle is very important. It is very useful to mark field as deprecated (not to be used), or experimental (not ready for the prime time).
+
+```text
+person {
+    firstName!: string,
+    lastName!: string,
+    deprecated sex: "M" | "F"
+    experimental transactions: [{
+        creditCard!: string,
+        ammount!: number
+    }]
+}
+```
+
+Additional types that are implemented are:
+```text
+sample {
+    boolField: boolean,
+    stringField: string,
+    integerField: integer,
+    numberField: number,
+    regexField: /regex/,
+    enumField: "CONSTANT1" | "CONSTANT2" | "CONSTANT3"
+}
+```
+
