@@ -1,13 +1,10 @@
 // Generated from /Users/timur/yajs/core/src/main/java/org/yajs/grammar/YAJS.g4 by ANTLR 4.5.3
-package org.yajs.grammar;
+package org.yajs.schema.grammar;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class YAJSParser extends Parser {
