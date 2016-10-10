@@ -1,39 +1,54 @@
 # YAJS - Yet Another Json Schema
 This project is an attempt to implement JSON schema in a consice form.
 
-E.g.
+Here is the simple self-speaking schema:
 ```text
-import ./Address.jschema
-
-type Age integer;
-
-type Date {
-	year!: integer,
-	month!: integer(min:1, max:12),
-	day!: integer(min:1, max:31)
+person {
+    firstName: string,
+    lastName: string
 }
+```
+The example declares person type and 2 optional fields firstName and lastName of type string.
+If the fields are required then the schema will evolve as following:
+```text
+person {
+    firstName!: string,
+    lastName!: string
+}
+```
 
-type User {
-	firstName!: string,
-	lastName!: string,
-	age: Age,
-	address!: Address,
-	dateOfBirth! : Date,
-	creditCardTransactions!: [{
-		ammount: float,
-		creditCard: string(minLength: 12, maxLength:16)
-		description: string
-	}],
-	deprecated(2016-10-09) checkTransactions: {
-		ammount: float,
-		routingNumber: string(length: 12),
-		account: string(minLength: 12, maxLength:16)
-		description: string
-	},
-	experimental paypalTransactions:{
-		ammount: float,
-		email: string(length: 12),
-		description: string
-	}
+The enumeration is could be added as simple as
+```text
+person {
+    firstName!: string,
+    lastName!: string,
+    sex: "M" | "F"
+}
+```
+
+The additional array of embedded objects could be added to the schema by simply embeddeding the structure like:
+```text
+person {
+    firstName!: string,
+    lastName!: string,
+    sex: "M" | "F"
+    transactions: [{
+    	creditCard!: string,
+	ammount!: number
+    }]
+}
+```
+
+The field lifecycle is very important. It is very useful to mark field as deprecated (not to be used), or experimental (not ready for the prime time).
+
+```text
+person {
+    firstName!: string,
+    lastName!: string,
+    deprecated sex: "M" | "F"
+    experimental transactions: [{
+    	creditCard!: string,
+	ammount!: number
+    }]
 }
 ```
