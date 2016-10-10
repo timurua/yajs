@@ -17,7 +17,7 @@ person {
 }
 ```
 
-The enumeration is could be added as simple as
+The enumeration could be added as simple as
 ```text
 person {
     firstName!: string,
