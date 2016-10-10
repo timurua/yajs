@@ -33,8 +33,8 @@ person {
     lastName!: string,
     sex: "M" | "F"
     transactions: [{
-    	creditCard!: string,
-	ammount!: number
+        creditCard!: string,
+        ammount!: number
     }]
 }
 ```
@@ -52,3 +52,16 @@ person {
     }]
 }
 ```
+
+Additional types that are implemented are:
+```text
+sample {
+    boolField: boolean,
+    stringField: string,
+    integerField: integer,
+    numberField: number,
+    regexField: /regex/,
+    enumField: "CONSTANT1" | "CONSTANT2" | "CONSTANT3"
+}
+```
+
