@@ -61,7 +61,9 @@ sample {
     integerField: integer,
     numberField: number,
     regexField: /regex/,
-    enumField: "CONSTANT1" | "CONSTANT2" | "CONSTANT3"
+    enumField: "CONSTANT1" | "CONSTANT2" | "CONSTANT3",
+    objectField: { ... },
+    arrayField: [ ... ]
 }
 ```
 
