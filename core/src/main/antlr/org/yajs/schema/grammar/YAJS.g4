@@ -1,5 +1,9 @@
 grammar YAJS;
 
+@header {
+package org.yajs.schema.grammar;
+}
+
 schema: (importStatement)* (typeDeclaration)*;
 
 importStatement: IMPORT_KEYWORD filename;

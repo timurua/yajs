@@ -1,8 +1,11 @@
-
 /** Taken from "The Definitive ANTLR 4 Reference" by Terence Parr */
 
 // Derived from http://json.org
 grammar JSON;
+
+@header {
+package org.yajs.json.grammar;
+}
 
 json
    : value
