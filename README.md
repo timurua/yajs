@@ -67,3 +67,19 @@ sample {
 }
 ```
 
+## Compression
+
+YAJS allows to transparently compress the JSON over the HTTP protocol.
+The following are extra headers that the client should be sending to YAJS enabled server:
+```text
+X-YAJS-Schema-URL: http://example.com/schama.yajs
+X-YAJS-Schama-SHA256: 4ab47e54c2f73ad4c0eb3974709721cd
+```
+
+If the schema is matched, then Exact Binary Encoding is used. If the schema is not matched then the Backward Compatible Binary Encoding is used.
+
+### Exact Binary Encoding
+
+
+### Backward Compatible Binary Encoding
+
