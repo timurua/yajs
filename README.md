@@ -37,10 +37,13 @@ Arrays are as simple as
 class person {
     legalNames: string[] = 1
 }
+```
 
 Loose typing is also possible with type any
 ```
 class person {
     freeForm: any = 1
 }
+```
+
 
