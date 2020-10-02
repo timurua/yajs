@@ -32,29 +32,15 @@ class person {
 }
 ```
 
-The additional array of embedded objects could be added to the schema by simply embeddeding the structure like:
-```text
-person {
-    firstName!: string,
-    lastName!: string,
-    sex: "M" | "F"
-    transactions: [{
-        creditCard!: string,
-        ammount!: number
-    }]
-}
+Arrays are as simple as
 ```
-
-The field lifecycle is very important. It is very useful to mark field as deprecated (not to be used), or experimental (not ready for the prime time).
-
-```text
-person {
-    firstName!: string,
-    lastName!: string,
-    deprecated sex: "M" | "F"
-    experimental transactions: [{
-        creditCard!: string,
-        ammount!: number
-    }]
+class person {
+    legalNames: string[] = 1
 }
+
+Loose typing is also possible with type any
 ```
+class person {
+    freeForm: any = 1
+}
+
