@@ -3,26 +3,32 @@ This project is an attempt to implement JSON schema in a consice form.
 
 Here is the simple self-speaking schema:
 ```text
-person {
-    firstName: string,
-    lastName: string
+class person {
+    firstName: string = 1,
+    lastName: string = 2
 }
 ```
 The example declares person type and 2 optional fields firstName and lastName of type string.
 If the fields are required then the schema will evolve as following:
 ```text
-person {
-    firstName!: string,
-    lastName!: string
+class person {
+    firstName: string! = 1,
+    lastName: string! = 2
 }
 ```
 
 The enumeration could be added as simple as
 ```text
-person {
-    firstName!: string,
-    lastName!: string,
-    sex: "M" | "F"
+enum gender {
+    M: string = 1,
+    F: string = 2,
+    NA: string = 3,    
+}
+
+class person {
+    firstName: string!,
+    lastName: string!,
+    sex: gender
 }
 ```
 
@@ -52,34 +58,3 @@ person {
     }]
 }
 ```
-
-Additional types that are implemented are:
-```text
-sample {
-    boolField: boolean,
-    stringField: string,
-    integerField: integer,
-    numberField: number,
-    regexField: /regex/,
-    enumField: "CONSTANT1" | "CONSTANT2" | "CONSTANT3",
-    objectField: { ... },
-    arrayField: [ ... ]
-}
-```
-
-## Compression
-
-YAJS allows to transparently compress the JSON over the HTTP protocol.
-The following are extra headers that the client should be sending to YAJS enabled server:
-```text
-X-YAJS-Schema-URL: http://example.com/schama.yajs
-X-YAJS-Schama-SHA256: 4ab47e54c2f73ad4c0eb3974709721cd
-```
-
-If the schema is matched, then Exact Binary Encoding is used. If the schema is not matched then the Backward Compatible Binary Encoding is used.
-
-### Exact Binary Encoding
-
-
-### Backward Compatible Binary Encoding
-
