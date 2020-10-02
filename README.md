@@ -46,4 +46,23 @@ class person {
 }
 ```
 
+Comments
+Loose typing is also possible with type any
+```
+class person {
+    // This is a free form field
+    freeForm: any = 1
+}
+```
+
+Annotations
+Loose typing is also possible with type any
+```
+@AllowExtra
+class person {
+    // This is a free form field
+    @Deprecated
+    freeForm: any = 1
+}
+```
 
