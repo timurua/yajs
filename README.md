@@ -26,23 +26,23 @@ enum gender {
 }
 
 object person {
-    firstName: string!,
-    lastName: string!,
-    sex: gender
+    firstName: string! = 1,
+    lastName: string! = 2,
+    sex: gender = 3,
 }
 ```
 
 Arrays are as simple as
 ```
 object person {
-    legalNames: string[] = 1
+    legalNames: string[] = 1,
 }
 ```
 
 Loose typing is also possible with type any
 ```
 object person {
-    freeForm: any = 1
+    freeForm: any = 1,
 }
 ```
 
@@ -51,7 +51,7 @@ Loose typing is also possible with type any
 ```
 object person {
     // This is a free form field
-    freeForm: any = 1
+    freeForm: any = 1,
 }
 ```
 
@@ -62,7 +62,7 @@ Loose typing is also possible with type any
 object person {
     // This is a free form field
     @Deprecated
-    freeForm: any = 1
+    freeForm: any = 1,
 }
 ```
 
