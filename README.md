@@ -3,7 +3,7 @@ This project is an attempt to implement JSON schema in a consice form.
 
 Here is the simple self-speaking schema:
 ```text
-class person {
+object person {
     firstName: string = 1,
     lastName: string = 2
 }
@@ -11,7 +11,7 @@ class person {
 The example declares person type and 2 optional fields firstName and lastName of type string.
 If the fields are required then the schema will evolve as following:
 ```text
-class person {
+object person {
     firstName: string! = 1,
     lastName: string! = 2
 }
@@ -25,7 +25,7 @@ enum gender {
     NA: string = 3,    
 }
 
-class person {
+object person {
     firstName: string!,
     lastName: string!,
     sex: gender
@@ -34,14 +34,14 @@ class person {
 
 Arrays are as simple as
 ```
-class person {
+object person {
     legalNames: string[] = 1
 }
 ```
 
 Loose typing is also possible with type any
 ```
-class person {
+object person {
     freeForm: any = 1
 }
 ```
@@ -49,7 +49,7 @@ class person {
 Comments
 Loose typing is also possible with type any
 ```
-class person {
+object person {
     // This is a free form field
     freeForm: any = 1
 }
@@ -59,7 +59,7 @@ Annotations
 Loose typing is also possible with type any
 ```
 @AllowExtra
-class person {
+object person {
     // This is a free form field
     @Deprecated
     freeForm: any = 1
