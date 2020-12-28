@@ -66,3 +66,6 @@ object person {
 }
 ```
 
+Library assumption:
+- No library
+
